@@ -1,12 +1,12 @@
 <?php
 
-namespace Itsmejoshua\Novaspatiepermissions;
+namespace Fullstackllc\Novaspatiepermissions;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Nova\Events\ServingNova;
 use Laravel\Nova\Nova;
-use Itsmejoshua\Novaspatiepermissions\Http\Middleware\Authorize;
+use Fullstackllc\Novaspatiepermissions\Http\Middleware\Authorize;
 
 class ToolServiceProvider extends ServiceProvider
 {

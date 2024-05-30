@@ -1,6 +1,6 @@
 <?php
 
-namespace Itsmejoshua\Novaspatiepermissions;
+namespace Fullstackllc\Novaspatiepermissions;
 
 use Illuminate\Http\Request;
 use Laravel\Nova\Menu\Menu;
@@ -17,7 +17,7 @@ class Novaspatiepermissions extends Tool
 	public $permissionResource = Permission::class;
 
 	public $registerCustomResources = false;
-	
+
     /**
      * Perform any tasks that need to happen when the tool is booted.
      *
@@ -32,9 +32,9 @@ class Novaspatiepermissions extends Tool
 				$this->permissionResource,
 			]);
 		}
-        
+
     }
-    
+
     public function roleResource(string $roleResource)
 	{
 		$this->roleResource = $roleResource;
@@ -48,7 +48,7 @@ class Novaspatiepermissions extends Tool
 
 		return $this;
 	}
-	
+
 	public function withRegistration()
 	{
 		$this->registerCustomResources = true;
@@ -65,15 +65,14 @@ class Novaspatiepermissions extends Tool
      */
     public function menu(Request $request)
     {
-    	
+
         return [
-        	
+
             MenuSection::make(__('nova-spatie-permissions::lang.sidebar_label'), [
             		MenuItem::link(__('nova-spatie-permissions::lang.sidebar_label_roles'), 'resources/roles'),
             		MenuItem::link(__('nova-spatie-permissions::lang.sidebar_label_permissions'), 'resources/permissions'),
                 ])->icon('key')->collapsable(),
-                
+
                 ];
     }
 }
-

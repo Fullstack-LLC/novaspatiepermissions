@@ -1,9 +1,9 @@
 <?php
 
-namespace Itsmejoshua\Novaspatiepermissions\Http\Middleware;
+namespace Fullstackllc\Novaspatiepermissions\Http\Middleware;
 
 use Laravel\Nova\Nova;
-use Itsmejoshua\Novaspatiepermissions\Novaspatiepermissions;
+use Fullstackllc\Novaspatiepermissions\Novaspatiepermissions;
 
 class Authorize
 {

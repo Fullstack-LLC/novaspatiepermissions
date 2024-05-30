@@ -1,15 +1,14 @@
 # A Laravel Nova tool for the Spatie Permission package
 
- [![License](https://poser.pugx.org/itsmejoshua/novaspatiepermissions/license)](https://packagist.org/packages/insenseanalytics/laravel-nova-permission)
- [![Latest Stable Version](https://poser.pugx.org/itsmejoshua/novaspatiepermissions/v/stable)](https://packagist.org/packages/itsmejoshua/novaspatiepermissions)
- [![Total Downloads](https://poser.pugx.org/itsmejoshua/novaspatiepermissions/downloads)](https://packagist.org/packages/itsmejoshua/novaspatiepermissions)
+ [![License](https://poser.pugx.org/Fullstackllc/novaspatiepermissions/license)](https://packagist.org/packages/insenseanalytics/laravel-nova-permission)
+ [![Latest Stable Version](https://poser.pugx.org/Fullstackllc/novaspatiepermissions/v/stable)](https://packagist.org/packages/Fullstackllc/novaspatiepermissions)
+ [![Total Downloads](https://poser.pugx.org/Fullstackllc/novaspatiepermissions/downloads)](https://packagist.org/packages/Fullstackllc/novaspatiepermissions)
 
 This [Nova](https://nova.laravel.com) tool lets you:
 - manage roles and permissions on the Nova dashboard
 - use permissions based authorization for Nova resources
 
 ## Screenshots
-<img alt="screenshot" src="https://itsmejoshua.ochosted.au-syd1.upcloudobjects.com/NovaSpatiePermissions.png" />
 
 ## Requirements & Dependencies
 There are no PHP dependencies except the [Laravel Nova](https://nova.laravel.com) v4 package and the [Spatie Permission](https://github.com/spatie/laravel-permission) v5 package.
@@ -18,14 +17,14 @@ There are no PHP dependencies except the [Laravel Nova](https://nova.laravel.com
 You can install this tool into a Laravel app that uses [Nova](https://nova.laravel.com) via composer:
 
 ```bash
-composer require itsmejoshua/novaspatiepermissions
+composer require fullstackllc/novaspatiepermissions
 ```
 
 Next, if you do not have package discovery enabled, you need to register the provider in the `config/app.php` file.
 ```php
 'providers' => [
     ...,
-    Itsmejoshua\Novaspatiepermissions\NovaSpatiePermissionsServiceProvider::class,
+    Fullstackllc\Novaspatiepermissions\NovaSpatiePermissionsServiceProvider::class,
 ]
 ```
 
@@ -33,7 +32,7 @@ Next, you must register the tool with Nova. This is typically done in the `tools
 
 ```php
 // in app/Providers/NovaServiceProvider.php
-use Itsmejoshua\Novaspatiepermissions\Novaspatiepermissions;
+use Fullstackllc\Novaspatiepermissions\Novaspatiepermissions;
 
 public function tools()
 {
@@ -53,8 +52,8 @@ public function fields(Request $request)
 {
     return [
         // ...
-        MorphToMany::make('Roles', 'roles', \Itsmejoshua\Novaspatiepermissions\Role::class),
-        MorphToMany::make('Permissions', 'permissions', \Itsmejoshua\Novaspatiepermissions\Permission::class),
+        MorphToMany::make('Roles', 'roles', \Fullstackllc\Novaspatiepermissions\Role::class),
+        MorphToMany::make('Permissions', 'permissions', \Fullstackllc\Novaspatiepermissions\Permission::class),
     ];
 }
 ```
@@ -69,7 +68,7 @@ Finally, add the `ForgetCachedPermissions` class to your `config/nova.php` middl
 	DispatchServingNovaEvent::class,
 	BootTools::class,
 	Authorize::class,
-	 \Itsmejoshua\Novaspatiepermissions\ForgetCachedPermissions::class,
+	 \Fullstackllc\Novaspatiepermissions\ForgetCachedPermissions::class,
 ],
 ```
 
@@ -78,7 +77,7 @@ Finally, add the `ForgetCachedPermissions` class to your `config/nova.php` middl
 You can use the artisan command line tool to publish localization files:
 
 ```php
-php artisan vendor:publish --provider=" \Itsmejoshua\Novaspatiepermissions\NovaPermissionServiceProvider"
+php artisan vendor:publish --provider=" \Fullstackllc\Novaspatiepermissions\NovaPermissionServiceProvider"
 ```
 
 ## Permissions Based Authorization for Nova Resources
@@ -91,7 +90,7 @@ To do so, you can use the `PermissionsBasedAuthTrait` and define a `permissionsF
 
 class YourNovaResource extends Resource
 {
-    use \Itsmejoshua\Novaspatiepermissions\PermissionsBasedAuthTrait;
+    use \Fullstackllc\Novaspatiepermissions\PermissionsBasedAuthTrait;
 
     public static $permissionsForAbilities = [
       'all' => 'manage products',
@@ -116,9 +115,9 @@ The example above means that all actions on this resource can be performed by us
     ];
 ```
 
-### Relationships 
-To allow your users to specify a relationship on your model, you will need to add another permission on the Model. 
-For example, if your `Product` belongs to `User`, add the following permission on `app/Nova/User.php`. : 
+### Relationships
+To allow your users to specify a relationship on your model, you will need to add another permission on the Model.
+For example, if your `Product` belongs to `User`, add the following permission on `app/Nova/User.php`. :
 
 ```php
     public static $permissionsForAbilities = [

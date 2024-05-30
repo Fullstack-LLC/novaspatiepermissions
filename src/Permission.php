@@ -1,6 +1,6 @@
 <?php
 
-namespace Itsmejoshua\Novaspatiepermissions;
+namespace Fullstackllc\Novaspatiepermissions;
 
 use Laravel\Nova\Resource;
 use Spatie\Permission\Models\Permission as SpatiePermission;

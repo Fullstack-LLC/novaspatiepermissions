@@ -1,5 +1,5 @@
 {
-    "name": "itsmejoshua/novaspatiepermissions",
+    "name": "fullstackllc/novaspatiepermissions",
     "description": "Laravel Nova tool for managing spaties roles/permissions in laravel's nova package.",
     "keywords": [
         "laravel",
@@ -15,14 +15,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Itsmejoshua\\Novaspatiepermissions\\": "src/"
+            "Fullstackllc\\Novaspatiepermissions\\": "src/"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Itsmejoshua\\Novaspatiepermissions\\ToolServiceProvider",
-                "Itsmejoshua\\Novaspatiepermissions\\NovaSpatiePermissionsServiceProvider"
+                "Fullstackllc\\Novaspatiepermissions\\ToolServiceProvider",
+                "Fullstackllc\\Novaspatiepermissions\\NovaSpatiePermissionsServiceProvider"
             ]
         }
     },

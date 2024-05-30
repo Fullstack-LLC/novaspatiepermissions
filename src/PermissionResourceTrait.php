@@ -1,6 +1,6 @@
 <?php
 
-namespace Itsmejoshua\Novaspatiepermissions;
+namespace Fullstackllc\Novaspatiepermissions;
 
 use Laravel\Nova\Http\Requests\NovaRequest;
 use Laravel\Nova\Nova;

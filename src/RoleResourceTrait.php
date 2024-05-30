@@ -1,6 +1,6 @@
 <?php
 
-namespace Itsmejoshua\Novaspatiepermissions;
+namespace Fullstackllc\Novaspatiepermissions;
 
 use Laravel\Nova\Nova;
 use Laravel\Nova\Fields\ID;

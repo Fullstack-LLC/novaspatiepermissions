@@ -1,6 +1,6 @@
 <?php
 
-namespace Itsmejoshua\Novaspatiepermissions;
+namespace Fullstackllc\Novaspatiepermissions;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -179,12 +179,12 @@ trait PermissionsBasedAuthTrait
 
 	public static function hasPermissionsTo(Request $request, $ability)
 	{
-	
+
 		if($request->GetRequestUri()==config('nova.path')."/login" || $request->GetRequestUri()==config('nova.path')."/password/reset"){
 			return true;
 		}
-		
-		
+
+
 		if (isset(static::$permissionsForAbilities[$ability])) {
 			return $request->user()->can(static::$permissionsForAbilities[$ability]);
 		}
